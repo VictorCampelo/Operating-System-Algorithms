@@ -22,13 +22,17 @@ def crt_l_pag(data):
 def main():
 	n_Frame = sys.stdin.readline() #cria a memoria com seu tamanho
 	pg = sys.stdin.readlines()
+	mem1 = Memory(n_Frame)
+	mem2 = Memory(n_Frame)
+	pg1 = crt_l_pag(pg)
+	pg2 = crt_l_pag(pg)
 
 	sc = SecondChance()
-	f_sc = sc.work(Memory(n_Frame), crt_l_pag(pg))
+	f_sc = sc.work(mem1, pg1)
 	print(f_sc)
 
 	otm = GreatAlg()
-	f_otm = otm.work(Memory(n_Frame), crt_l_pag(pg))
+	f_otm = otm.work(mem2, pg2)
 	print(f_otm)
 
 

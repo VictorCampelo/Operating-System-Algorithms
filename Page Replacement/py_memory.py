@@ -1,13 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-Classe 0: não referenciada, não modificada. 0 0
-Classe 1: não referenciada, modificada.     0 1
-Classe 2: referenciada, não modificada.     1 0
-Classe 3: referenciada, modificada.         1 1
-"""
-
 class Page:
 	""" this class is representing the process"""
 	def __init__(self, ref):
@@ -43,5 +36,5 @@ class Memory:
 	def get_frame(self):
 		return self.frame
 
-	def add_p_frame(self, ref):
-		self.frame.append(ref)
+	def add_p_frame(self, page):
+		self.frame.append(page)
