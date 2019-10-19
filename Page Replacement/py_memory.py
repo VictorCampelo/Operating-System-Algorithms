@@ -8,6 +8,13 @@ class Page:
 		self.bit_R = 0
 		self.bit_M = 0
 		self.n_ins = 0
+		self.last_use = 0
+	
+	def get_last_use(self):
+		return self.last_use
+
+	def set_last_use(self, value):
+		self.last_use = value
 
 	def get_ref(self):
 		return self.ref	
@@ -29,7 +36,11 @@ class Memory:
 	def __init__(self, lgt):
 		self.lgt = lgt
 		self.frame = []
-	
+		self.lim = (int(lgt)/2)+1
+
+	def get_lim(self):
+		return self.lim
+
 	def get_lgt(self):
 		return self.lgt
 

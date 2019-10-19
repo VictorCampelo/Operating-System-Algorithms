@@ -12,6 +12,7 @@ import sys
 from py_memory import *
 from secondChance import *
 from greatAlg import *
+from workingSet import *
 
 def crt_l_pag(data):
 	l_pag = []
@@ -24,8 +25,10 @@ def main():
 	pg = sys.stdin.readlines()
 	mem1 = Memory(n_Frame)
 	mem2 = Memory(n_Frame)
+	mem3 = Memory(n_Frame)
 	pg1 = crt_l_pag(pg)
 	pg2 = crt_l_pag(pg)
+	pg3 = crt_l_pag(pg)
 
 	sc = SecondChance()
 	f_sc = sc.work(mem1, pg1)
@@ -34,6 +37,10 @@ def main():
 	otm = GreatAlg()
 	f_otm = otm.work(mem2, pg2)
 	print(f_otm)
+
+	wset = WorkingSet()
+	f_wset = wset.work(mem3, pg3)
+	print(f_wset)
 
 
 if __name__ == '__main__':
