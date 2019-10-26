@@ -5,13 +5,10 @@ class Process:
 	def __init__(self, idt, arr, exc):
 		self.idt = idt
 		self.arr = arr
+		self.arr_aux = arr
 		self.exc = exc
-		self.ret = 0
-		self.res = 0
-		self.esp = 0
 		self.prt = -1
 		self.start_exc = -1
-		self.queue = 0
 
 	def idt(self):
 		return self.idt
@@ -19,23 +16,14 @@ class Process:
 	def arr(self):
 		return self.arr
 
+	def arr_aux(self):
+		return self.arr_aux		
+
+	def arr_to_pair(self):
+		self.arr_aux += 1
+
 	def exc(self):
 		return self.exc
-
-	def ret(self):
-		return self.ret
-
-	def res(self):
-		return self.res			
-
-	def esp(self):
-		return self.esp
-
-	def queue(self):
-		return self.queue			
-
-	def set_pos_queue(self, value):
-		self.queue += value
 
 	def start_exc(self):
 		return self.start_exc	

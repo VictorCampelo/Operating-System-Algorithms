@@ -41,18 +41,28 @@ def main():
 
 	dp = DynPri()
 	tam = len(pc)
-	mid = dp.work(pc)
-	print(str(mid/tam))
+	(ret, res, esp) = dp.work(pc)
+
+	outPut_dp = "PRI {0} {1} {2}"
+	outPut_dp = outPut_dp.format((ret/tam), (res/tam), (esp/tam))	
 
 	lt = Lotery()
 	tam = len(pc1)
-	mid = lt.work(pc1)
-	print(str(mid/tam))	
+	(ret, res, esp) = lt.work(pc1)
+	
+	outPut_lt = "LOT {0} {1} {2}"
+	outPut_lt = outPut_lt.format((ret/tam), (res/tam), (esp/tam))	
 
 	rdn = RoundRobin()
 	tam = len(pc2)
-	mid = rdn.work(pc2)
-	print(str(mid/tam))
+	(ret, res, esp) = rdn.work(pc2)
+	
+	outPut_rdn = "RR {0} {1} {2}"
+	outPut_rdn = outPut_rdn.format((ret/tam), (res/tam), (esp/tam))
+
+	output = "{0}\n{1}\n{2}"
+
+	print(output.format(outPut_dp, outPut_lt, outPut_rdn))
 
 
 if __name__ == '__main__':

@@ -9,7 +9,9 @@ class DynPri:
 #retorno = step(process executou) - step(process exc = 0)
 	def work(self, process):
 		step = 0
-		value = 0.0
+		ret = 0.0
+		res = 0.0
+		esp = 0.0
 		while len(process) > 0:
 			for x in range(0, len(process), 1):
 				if process[x].arr == step:
@@ -24,34 +26,33 @@ class DynPri:
 					if process[x].idt < process[i].idt:
 						i = x
 						break
-			print("passo: "+str(step))
-			print("id: "+str(process[i].idt))
-			print("chegada: "+str(process[i].arr))
-			print("prioridade: "+str(process[i].prt))
 			if process[i].start_exc == -1:
 				process[i].set_start_exc(step)
+				res += (step - process[i].arr)
 			process[i].dec_prt()
 			process[i].dec_exc(1)
-			print("nova prioridade: "+str(process[i].prt))
+			#print("nova prioridade: "+str(process[i].prt))
 			if process[i].exc == 0:
-				print("processo: "+str(process[i].idt)+" Finalizou em "+str(step))
-				value += (step - process[i].arr)+1
-				print("Valeu: "+str((step - process[i].arr)+1))
+				#print("processo: "+str(process[i].idt)+" Finalizou em "+str(step))
+				ret += (step - process[i].arr)+1
+				#print("Valeu: "+str((step - process[i].arr)+1))
 				del process[i]
 				for x in range(0, len(process), 1):
 				#encontra os processos que ainda não receberam prioridades
 					if (process[x].prt > 0):
 						process[x].inc_prt()
-						print("incrementou o: "+str(process[x].idt))	
+						#print("incrementou o: "+str(process[x].idt))
+						esp += 1	
 				step += 1
-				print("\n")
+				#print("\n")
 				continue
 			#incrementa as prioridades dos outros
 			for x in range(0, len(process), 1):
 				#encontra os processos que ainda não receberam prioridades
 				if (process[x].prt > 0 and x != i):
 					process[x].inc_prt()
-					print("incrementou o: "+str(process[x].idt))	
+					#print("incrementou o: "+str(process[x].idt))
+					esp += 1	
 			step += 1
-			print("\n")	
-		return value			
+			#print("\n")	
+		return (ret, res, esp)			
