@@ -23,15 +23,24 @@ def main():
 
 	fcfs = Fcfs()
 	n1 = fcfs.work(dks1, s1)
-	print(n1)
+
+	outPut_fcfs = "FCFS {0}"
+	outPut_fcfs = outPut_fcfs.format(n1)
 
 	sstf = Sstf()
 	n2 = sstf.work(dks2, s2)
-	print(n2)
+
+	outPut_sstf = "SSTF {0}"
+	outPut_sstf = outPut_sstf.format(n2)
 
 	elv = Elevator()
-	n2 = elv.work(dks3, s3)
-	print(n2)
+	n3 = elv.work(dks3, s3)
+
+	outPut_elv = "ELEVADOR {0}"
+	outPut_elv = outPut_elv.format(n3)
+
+	output = "{0}\n{1}\n{2}"
+	print(output.format(outPut_fcfs, outPut_sstf, outPut_elv))
 
 if __name__ == '__main__':
     main()
