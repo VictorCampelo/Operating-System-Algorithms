@@ -13,6 +13,7 @@ from process import Process
 from dynPri import *
 from lotery import *
 from roundRobin import *
+from copy import deepcopy
 
 def conv_to_matrix(data):
 	process__Mtx = []
@@ -32,37 +33,26 @@ def conv_to_matrix(data):
 def main():
 	in__data = sys.stdin.readlines()
 
-	pc = conv_to_matrix(in__data)
-	dynPri = []
-	lotery = []
-	roundRobin = []
+	pc = deepcopy(conv_to_matrix(in__data))
+	pc1 = deepcopy(pc)
+	pc2 = deepcopy(pc)
+
+	print(pc)
+
 	dp = DynPri()
-	dp.work(pc)
-	mid = 0.0
-	for x in pc:
-		mid += x.ret
-		print(x.ret)
-	print(str(mid/len(pc)))
+	tam = len(pc)
+	mid = dp.work(pc)
+	print(str(mid/tam))
 
-
-	pc1 = conv_to_matrix(in__data)
 	lt = Lotery()
-	lt.work(pc1)
-	mid = 0.0 
-	for x in pc1:
-		mid += x.ret
-		print(x.ret)
-	print(str(mid/len(pc1)))	
+	tam = len(pc1)
+	mid = lt.work(pc1)
+	print(str(mid/tam))	
 
-
-	pc2 = conv_to_matrix(in__data)
 	rdn = RoundRobin()
-	rdn.work(pc2)
-	mid = 0.0
-	for x in pc2:
-		mid += x.ret
-		print(x.ret)
-	print(str(mid/len(pc2)))	
+	tam = len(pc2)
+	mid = rdn.work(pc2)
+	print(str(mid/tam))
 
 
 if __name__ == '__main__':

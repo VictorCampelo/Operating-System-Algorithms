@@ -12,6 +12,7 @@ class RoundRobin:
 #retorno = step(process executou) - step(process exc = 0)
 	def work(self, process):
 		state = True
+		value = 0.0
 		process.sort(key=lambda x: (x.arr,x.idt), reverse=False)
 		'''for x in xrange(0,len(process)):
 			for y in xrange(x,len(process)):
@@ -45,7 +46,7 @@ class RoundRobin:
 					process[loop].dec_exc(2)
 					step += 2
 				if process[loop].exc == 0:
-					process[loop].set_ret((step+1) - (process[loop].arr+1))	
+					value += ((step+1) - (process[loop].arr+1))	
 				for x in xrange(0,len(process)):
 					if x == loop:
 						continue
@@ -55,3 +56,4 @@ class RoundRobin:
 					loop = 0
 				end = 1
 				loop += 1
+		return value		

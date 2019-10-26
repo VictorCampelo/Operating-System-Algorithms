@@ -14,6 +14,7 @@ class Lotery:
 		step = 0
 		tam = 0
 		state = True
+		value = 0.0
 		while state:
 			end = 1;
 			lst = []
@@ -40,7 +41,8 @@ class Lotery:
 				step += 2
 			if process[lst[i]].exc == 0:
 				print("processo: "+str(process[lst[i]].idt)+" Finalizou em "+str(step))
-				process[lst[i]].set_ret((step+1) - (process[lst[i]].arr+1))
+				value += ((step+1) - (process[lst[i]].arr+1))
+		return value		
 
 
 
