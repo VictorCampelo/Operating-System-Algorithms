@@ -32,16 +32,24 @@ def main():
 
 	sc = SecondChance()
 	f_sc = sc.work(mem1, pg1)
-	print(f_sc)
+
+	outPut_sc = "SC {0}"
+	outPut_sc = outPut_sc.format(f_sc)
 
 	otm = GreatAlg()
 	f_otm = otm.work(mem2, pg2)
-	print(f_otm)
+
+	outPut_otm = "OTM {0}"
+	outPut_otm = outPut_otm.format(f_otm)
 
 	wset = WorkingSet()
 	f_wset = wset.work(mem3, pg3)
-	print(f_wset)
 
+	outPut_wset = "CT {0}"
+	outPut_wset = outPut_wset.format(f_wset)
+
+	output = "{0}\n{1}\n{2}"
+	print(output.format(outPut_sc, outPut_otm, outPut_wset))
 
 if __name__ == '__main__':
     main()
