@@ -49,7 +49,11 @@ def main():
 	outPut_wset = outPut_wset.format(f_wset)
 
 	output = "{0}\n{1}\n{2}"
-	print(output.format(outPut_sc, outPut_otm, outPut_wset))
+	#print(output.format(outPut_sc, outPut_otm, outPut_wset))
+
+	with open('out.txt', 'w+') as file_w:
+		file_w.write(output.format(outPut_sc, outPut_otm, outPut_wset))
+
 
 if __name__ == '__main__':
     main()

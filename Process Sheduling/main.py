@@ -30,8 +30,6 @@ def main():
 	pc1 = deepcopy(pc)
 	pc2 = deepcopy(pc)
 
-	print(pc)
-
 	dp = DynPri()
 	tam = len(pc)
 	(ret, res, esp) = dp.work(pc)
@@ -55,7 +53,11 @@ def main():
 
 	output = "{0}\n{1}\n{2}"
 
-	print(output.format(outPut_dp, outPut_lt, outPut_rdn))
+	#print(output.format(outPut_dp, outPut_lt, outPut_rdn))
+
+	with open('out.txt', 'w+') as file_w:
+		file_w.write(output.format(outPut_dp, outPut_lt, outPut_rdn))
+
 
 
 if __name__ == '__main__':

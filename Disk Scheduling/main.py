@@ -40,7 +40,10 @@ def main():
 	outPut_elv = outPut_elv.format(n3)
 
 	output = "{0}\n{1}\n{2}"
-	print(output.format(outPut_fcfs, outPut_sstf, outPut_elv))
+	#print(output.format(outPut_fcfs, outPut_sstf, outPut_elv))
+
+	with open('out.txt', 'w+') as file_w:
+		file_w.write(output.format(outPut_fcfs, outPut_sstf, outPut_elv))	
 
 if __name__ == '__main__':
     main()

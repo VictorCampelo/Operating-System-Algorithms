@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 class DynPri:
-	""" this class is representing the process"""
 	def __init__(self):
 		self.ret__M = 0
 		self.res__M = 0

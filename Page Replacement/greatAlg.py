@@ -23,10 +23,10 @@ class GreatAlg:
 		j = 0
 		for x in frame:
 			aux = 0
-			for y in range(i,len(pages)-1):
+			for y in range(i,len(pages),1):
 				if y == len(pages)-1:
 					ind = j
-					return idn				
+					return ind				
 				elif x.get_ref() == pages[y].get_ref():
 					if aux > count:
 						count = aux
